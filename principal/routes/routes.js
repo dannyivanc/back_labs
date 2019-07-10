@@ -21,7 +21,7 @@ router.get('/hola/:name',(req,res)=>{
 });
 
 router.post('/b/a_guias',(req,res) =>{
-  console.log('POST /add/guias');
+ 
   console.log(req.body);
   const guia = new Guia()
   guia.materia = req.body.materia
@@ -32,7 +32,8 @@ router.post('/b/a_guias',(req,res) =>{
     if (err) res.status(500).send({message:`error al guardar: ${err}`})
     res.status(200).send({guia : guiaStored})
   })
-
+  console.log('.     .')
+  console.log(guia)
 })
 
 
