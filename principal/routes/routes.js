@@ -6,7 +6,7 @@ const Guia = require('../model/guia');
 const materia = require('../model/materia');
 const Tarea = require('../model/tarea');
 
-
+/*comit 2*/
 router.get('/qwe',(req,res)=>{
   console.log('asd')
   res.send('asd')
