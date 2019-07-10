@@ -13,6 +13,20 @@ router.get('/qwe',(req,res)=>{
   res.send('asd')
 });
 
+router.get('/', (req,res ) =>{
+  const docente = new Docente()
+  docente.rudoc = req.body.rudoc
+  docente.ci = req.body.ci
+  docente.rol = req.body.rol
+})
+
+
+rudoc : {type:String , required:true , unique:true},
+  ci : {type:Number , required:true , unique:true},
+  rol :
+
+router.get()
+
 
 
 router.get('/hola/:name',(req,res)=>{
@@ -32,7 +46,7 @@ router.post('/b/a_guias',(req,res) =>{
     if (err) res.status(500).send({message:`error al guardar: ${err}`})
     res.status(200).send({guia : guiaStored})
   })
-  console.log('.     .')
+
   console.log(guia)
 })
 
