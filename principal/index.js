@@ -37,3 +37,9 @@ app.listen(app.get('port'), () => {
  //console.log(`)
   console.log('corriendo en: '+app.get('port'));
 });*/
+
+
+
+//configurando los token
+
+SECRET_TOKEN:'clavedetoken'
