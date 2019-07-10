@@ -7,6 +7,7 @@ const materia = require('../model/materia');
 const Tarea = require('../model/tarea');
 
 /*comit 2*/
+/*comit 3*/
 router.get('/qwe',(req,res)=>{
   console.log('asd')
   res.send('asd')
