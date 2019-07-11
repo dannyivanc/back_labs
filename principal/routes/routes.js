@@ -2,27 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
 const service = require('../services/index');
-const Docente = require('../models/Docente');
-const Estudiante = require('../models/Estudiante');
-const materia = require('../models/materia');
-const Tarea = require('../models/tarea');
 
 //controladores
 const GuiaCtrl = require('../controllers/Guia');
-
 router.post('/b/a_guias',GuiaCtrl.guardar_guias)
-
 router.get('/b/mostrar_guias',GuiaCtrl.mostrar_guias)
-
-
 router.get('/b/mostrar_guias2',GuiaCtrl.mostrar_guias_nombre)
-
-
-
-
-
-
-
 
 //creando token
 router.post('/', (req,res ) =>{
@@ -35,7 +20,6 @@ router.post('/', (req,res ) =>{
     return res.status(200).send({token: service.createToken(docente)})
   })
 })
-
 
 
 
