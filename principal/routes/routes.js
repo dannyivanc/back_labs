@@ -5,7 +5,7 @@ const service = require('../services/index');
 
 //controladores
 const GuiaCtrl = require('../controllers/Guia');
-router.post('/b/a_guias',GuiaCtrl.guardar_guias)
+router.post('/b/a_guias',  GuiaCtrl.guardar_guias)
 router.get('/b/mostrar_guias',GuiaCtrl.mostrar_guias)
 router.get('/b/mostrar_guias2',GuiaCtrl.mostrar_guias_nombre)
 
