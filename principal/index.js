@@ -12,11 +12,13 @@ console.log('base de datos conectada')
 });
 
 
+
 // importando rutas
 const indexRoutes = require('./routes/routes');
 
 // configuraciones
 const port = process.env.PORT || 3000;
+
 
 // middlewares
 app.use(morgan('dev'));
@@ -26,6 +28,11 @@ app.use(bodyParser.json());
 
 // routes
 app.use('/', indexRoutes);
+
+
+//configurando los token
+//SECRET_TOKEN:'clavedetoken'
+
 
 app.listen(port,()=>{
   console.log(`corriendo en: ${port}`)
@@ -37,9 +44,3 @@ app.listen(app.get('port'), () => {
  //console.log(`)
   console.log('corriendo en: '+app.get('port'));
 });*/
-
-
-
-//configurando los token
-
-SECRET_TOKEN:'clavedetoken'
