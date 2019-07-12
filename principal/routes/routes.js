@@ -22,9 +22,6 @@ router.post('/', (req,res ) =>{
 })
 
 
-
-
-
 router.get('/hola/:name',(req,res)=>{
   res.send({message : `hola: ${req.params.name}`});
   //res.send({message : 'hola: ' + req.params.name})
