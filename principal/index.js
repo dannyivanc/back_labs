@@ -17,7 +17,8 @@ console.log('base de datos conectada')
 const indexRoutes = require('./routes/routes');
 
 // configuraciones
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
+
 
 
 // middlewares
@@ -44,3 +45,8 @@ app.listen(app.get('port'), () => {
  //console.log(`)
   console.log('corriendo en: '+app.get('port'));
 });*/
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fe40da89b77fca2388df84cec0a248eccb2c664a
