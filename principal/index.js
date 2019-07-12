@@ -27,6 +27,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+//comit 1 despuesasd
 // routes
 app.use('/', indexRoutes);
 
@@ -45,8 +46,3 @@ app.listen(app.get('port'), () => {
  //console.log(`)
   console.log('corriendo en: '+app.get('port'));
 });*/
-<<<<<<< HEAD
-=======
-
-
->>>>>>> fe40da89b77fca2388df84cec0a248eccb2c664a
