@@ -17,7 +17,7 @@ console.log('base de datos conectada')
 const indexRoutes = require('./routes/routes');
 
 // configuraciones
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 
 // middlewares
