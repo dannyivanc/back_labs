@@ -32,8 +32,8 @@ app.use(bodyParser.json());
 app.use('/', indexRoutes);
 
 
-//configurando los token
-//SECRET_TOKEN:'clavedetoken'
+
+
 
 
 app.listen(port,()=>{
@@ -46,3 +46,8 @@ app.listen(app.get('port'), () => {
  //console.log(`)
   console.log('corriendo en: '+app.get('port'));
 });*/
+
+module.exports ={
+  //configurando los token
+  SECRET_TOKEN:'token'
+}

@@ -1,6 +1,6 @@
 const jwt = require('jwt-simple')
 const moment = require('moment')
-const config = require('../index')
+const index = require('../index')
 
 function createToken(docente){
     const payload = {
@@ -10,7 +10,7 @@ function createToken(docente){
         exp: moment().add(100,'days').unix(),
         
     }
-   return jwt.encode(payload,config.SECRET_TOKEN)
+   return jwt.encode(payload,index.SECRET_TOKEN)
 }
 rudoc :
   ci : 
