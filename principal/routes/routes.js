@@ -14,6 +14,8 @@ router.get('/b/mostrar_guias2',GuiaCtrl.mostrar_guias_nombre)
 router.post('/b/a_docente',DocenteCtrl.reguistrar_docentes)
 router.get('/b/mostrar_docentes',DocenteCtrl.mostrar_docentes)
 
+router.get('/login',DocenteCtrl.logear_docente)
+
 
 //router.get('/privado', )
 //creando token
