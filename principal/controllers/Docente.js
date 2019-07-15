@@ -2,7 +2,7 @@ const Docente = require('../models/Docente')
 
 
 
-async function reguistrar_docentes(req,res){
+async function a_docente(req,res){
     const docente = new Docente()
     docente.rudoc = req.body.rudoc,
     docente.ci = req.body.ci,
@@ -24,23 +24,28 @@ async function mostrar_docentes(req,res){
 }
 
 async function logear_docente(req,res){
-    const logRudoc = req.body.metodo
+
+    const logRudoc = req.body.rudoc
+    const logCi = req.body.ci
    // const logCi = req.body.ci
-    console.log()
+    console.log(logRudoc)
+    console.log(logCi)
 
+    Docente.findById({logRudoc},(err,login) =>{
+        if(!logRudoc){
+            res.send({ message: `no existe el usuario ${logRudoc}`})
 
-    Docente.findById({rudoc},(err,login) =>{
+        }
         if(err) {
              res.send({message:'error'})
-             console.log('no se encontro'+rudoc)
         }
-        login.send(docente)
-        console.log(rudoc)
+        login.send(logRudoc)
+        console.log(logRudoc)
     })
 
 }
 module.exports = {
-    reguistrar_docentes,
+    a_docente,
     mostrar_docentes,
     logear_docente
 }

@@ -11,10 +11,16 @@ router.post('/b/a_guias',  GuiaCtrl.guardar_guias)
 router.get('/b/mostrar_guias',GuiaCtrl.mostrar_guias)
 router.get('/b/mostrar_guias2',GuiaCtrl.mostrar_guias_nombre)
 
-router.post('/b/a_docente',DocenteCtrl.reguistrar_docentes)
+
+
+
+router.post('/b/a_docente',DocenteCtrl.a_docente)
+
+
+
 router.get('/b/mostrar_docentes',DocenteCtrl.mostrar_docentes)
 
-router.get('/login',DocenteCtrl.logear_docente)
+router.post('/login',DocenteCtrl.logear_docente)
 
 
 //router.get('/privado', )
