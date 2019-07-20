@@ -1,7 +1,9 @@
 const Guia = require('../models/Guia'); 
+const docenteCtrl = require('../controllers/Docente')
+var qwerty = docenteCtrl.logRudoc2
 
 async function guardar_guias (req,res){
-    const guia = new Guia()
+    let guia = new Guia()
     guia.numero = req.body.numero,
     guia.estudiante = req.body.estudiante,
     guia.calificacion = req.body.calificacion,
@@ -25,7 +27,11 @@ async function mostrar_guias (req,res){
         if (err) res.status(500).send({message:`error al guardar: ${err}`})
         if(!guias) return res.status(404).send({message: `no existen productos ` })
         res.send(200, {guias})
+
+        console.log(qwerty)
       })
+
+      
 }
 
  async function mostrar_guias_nombre(req,res){

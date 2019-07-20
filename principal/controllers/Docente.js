@@ -1,9 +1,8 @@
 const Docente = require('../models/Docente')
 
-
-
+var logRudoc2 
 async function a_docente(req,res){
-    const docente = new Docente()
+    let docente = new Docente()
     docente.rudoc = req.body.rudoc,
     docente.ci = req.body.ci,
     docente.rol = req.body.rol
@@ -12,7 +11,7 @@ async function a_docente(req,res){
     console.log(docente)
     res.send(docente)
 
-}
+}logRudoc2
 
 async function mostrar_docentes(req,res){
     Docente.find({},(err,docente) =>{
@@ -25,11 +24,10 @@ async function mostrar_docentes(req,res){
 
 async function logear_docente(req,res){
 
-    const logRudoc = req.body.rudoc
-    const logCi = req.body.ci
+    var logRudoc = req.body.rudoc
+    var logCi = req.body.ci
    // const logCi = req.body.ci
-    console.log(logRudoc)
-    console.log(logCi)
+ 
 
     Docente.findById({logRudoc},(err,login) =>{
         if(!logRudoc){
@@ -39,14 +37,18 @@ async function logear_docente(req,res){
         if(err) {
              res.send({message:'error'})
         }
-        login.send(logRudoc)
         console.log(logRudoc)
+        console.log(logCi)
+        logRudoc2 = logRudoc
+        console.log(logRudoc2)
+
     })
 
 }
 module.exports = {
     a_docente,
     mostrar_docentes,
-    logear_docente
+    logear_docente,
+    logRudoc2
 }
 
