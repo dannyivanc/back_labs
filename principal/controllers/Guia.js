@@ -44,11 +44,15 @@ async function mostrar_guias (req,res){
         if(!guias) return res.status(404).send({message: `no existen productos ` })
         res.send(200, {guias})
       })
-}
+  }
 
 
+  async function renderisar_mostrar_guias (req,res){
+    res.render('mostrar_guias')
+  }
 module.exports={
     guardar_guias,
     mostrar_guias,
-    mostrar_guias_nombre
+    mostrar_guias_nombre,
+    renderisar_mostrar_guias
 } 

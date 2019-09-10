@@ -1,6 +1,9 @@
 const Docente = require('../models/Docente')
+const express = require('express')
+const app = express();
+const flash = require('connect-flash')
+app.use(flash())
 
-var logRudoc2 
 async function a_docente(req,res){
     let docente = new Docente()
     docente.rudoc = req.body.rudoc,
@@ -11,7 +14,7 @@ async function a_docente(req,res){
     console.log(docente)
     res.send(docente)
 
-}logRudoc2
+}
 
 async function mostrar_docentes(req,res){
     Docente.find({},(err,docente) =>{
@@ -23,32 +26,38 @@ async function mostrar_docentes(req,res){
 }
 
 async function logear_docente(req,res){
-
     var logRudoc = req.body.rudoc
     var logCi = req.body.ci
    // const logCi = req.body.ci
- 
+    var wii= logRudoc
+    console.log(wii)
 
-    Docente.findById({logRudoc},(err,login) =>{
-        if(!logRudoc){
-            res.send({ message: `no existe el usuario ${logRudoc}`})
-
+     Docente.find({
+        rudoc:logRudoc
+    },(err,docente) =>{
+        if(docente.length==0){
+            res.status(404).send([0])
         }
-        if(err) {
-             res.send({message:'error'})
+        if(docente.length>0){
+          //  res.status(200).send({message: `no existe el usuario ${logRudoc}`})
+          res.status(200).send([1])
         }
-        console.log(logRudoc)
-        console.log(logCi)
-        logRudoc2 = logRudoc
-        console.log(logRudoc2)
-
+        if(err){
+            res.status(500).send({respuesta: `se produjo un error`})
+        }
     })
+
+}
+
+async function edocenteRu(req,res){
+    var docenteRu = req.body.rudoc
+    res.send(docenteRu)
 
 }
 module.exports = {
     a_docente,
     mostrar_docentes,
     logear_docente,
-    logRudoc2
+    edocenteRu
 }
 

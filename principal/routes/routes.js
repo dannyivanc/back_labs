@@ -7,18 +7,18 @@ const service = require('../services/index');
 const GuiaCtrl = require('../controllers/Guia')
 const DocenteCtrl = require('../controllers/Docente')
 
-router.post('/b/a_guias',  GuiaCtrl.guardar_guias)
-router.get('/b/mostrar_guias',GuiaCtrl.mostrar_guias)
-router.get('/b/mostrar_guias2',GuiaCtrl.mostrar_guias_nombre)
+router.post('/a_guias',  GuiaCtrl.guardar_guias)
+router.get('/mostrar_guias',GuiaCtrl.mostrar_guias)
+router.get('/mostrar_guias2',GuiaCtrl.mostrar_guias_nombre)
 
 
 
 
-router.post('/b/a_docente',DocenteCtrl.a_docente)
+router.post('/a_docente',DocenteCtrl.a_docente)
 
 
 
-router.get('/b/mostrar_docentes',DocenteCtrl.mostrar_docentes)
+router.get('/mostrar_docentes',DocenteCtrl.mostrar_docentes)
 
 router.post('/login',DocenteCtrl.logear_docente)
 
