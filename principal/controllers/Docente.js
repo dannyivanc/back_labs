@@ -4,6 +4,9 @@ const app = express();
 const flash = require('connect-flash')
 app.use(flash())
 
+var ru_docente
+var rudocente123
+
 async function a_docente(req,res){
     let docente = new Docente()
     docente.rudoc = req.body.rudoc,
@@ -25,22 +28,32 @@ async function mostrar_docentes(req,res){
   
 }
 
+
 async function logear_docente(req,res){
     var logRudoc = req.body.rudoc
     var logCi = req.body.ci
-   // const logCi = req.body.ci
-    var wii= logRudoc
-    console.log(wii)
+    ru_docente = logRudoc// para mandar el ru a otra vista
 
      Docente.find({
-        rudoc:logRudoc
-    },(err,docente) =>{
+         $and:[
+            {rudoc: logRudoc},
+          {ci : logCi}  
+         ]
+     }
+         
+    
+    ,(err,docente) =>{
+        console.log(docente.length)
+        
         if(docente.length==0){
-            res.status(404).send([0])
+            console.log(docente)
+          res.status(404).send([0])
         }
-        if(docente.length>0){
+        if(docente.length==1){
           //  res.status(200).send({message: `no existe el usuario ${logRudoc}`})
+          console.log(docente)
           res.status(200).send([1])
+          console.log('esta es asd asd asd '+ru_docente)
         }
         if(err){
             res.status(500).send({respuesta: `se produjo un error`})
@@ -49,15 +62,17 @@ async function logear_docente(req,res){
 
 }
 
-async function edocenteRu(req,res){
-    var docenteRu = req.body.rudoc
-    res.send(docenteRu)
-
+async function rudocente(){
+res.send(ru_docente)
 }
+
+rudocente123=ru_docente
+
 module.exports = {
     a_docente,
     mostrar_docentes,
     logear_docente,
-    edocenteRu
+    rudocente,
+    rudocente123
 }
 
