@@ -31,11 +31,6 @@ app.use(bodyParser.json());
 // routes
 app.use('/', indexRoutes);
 
-
-
-
-
-
 app.listen(port,()=>{
   console.log(`corriendo en: ${port}`)
 });
@@ -47,7 +42,9 @@ app.listen(app.get('port'), () => {
   console.log('corriendo en: '+app.get('port'));
 });*/
 
+
+
 module.exports ={
   //configurando los token
-  SECRET_TOKEN:'token'
+  SECRET_TOKEN:'mitoken'
 }
