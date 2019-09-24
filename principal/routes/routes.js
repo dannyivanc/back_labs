@@ -10,7 +10,7 @@ const DocenteCtrl = require('../controllers/Docente')
 const ctrlAuth = require('../controllers/Autenticar')
 
 router.post('/a_guias',  GuiaCtrl.guardar_guias)
-router.get('/mostrar_guias',GuiaCtrl.mostrar_guias)
+router.get('/mostrar_guias',auth.isdocenteAuth,GuiaCtrl.mostrar_guias)
 router.get('/mostrar_guias2',GuiaCtrl.mostrar_guias_nombre)
 
 

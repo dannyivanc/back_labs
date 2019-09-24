@@ -3,10 +3,11 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./config')
 const app = express();
 
 // coneccion a base de datos
-mongoose.connect('mongodb://localhost/labs', { useNewUrlParser: true },(err,res)=>{
+mongoose.connect(config.db, { useNewUrlParser: true },(err,res)=>{
 if(err) throw err
 console.log('base de datos conectada')
 });
@@ -17,7 +18,7 @@ console.log('base de datos conectada')
 const indexRoutes = require('./routes/routes');
 
 // configuraciones
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
 
 
 
@@ -31,8 +32,8 @@ app.use(bodyParser.json());
 // routes
 app.use('/', indexRoutes);
 
-app.listen(port,()=>{
-  console.log(`corriendo en: ${port}`)
+app.listen(config.port,()=>{
+  console.log(`corriendo en: ${config.port}`)
 });
 
 /*
@@ -44,7 +45,3 @@ app.listen(app.get('port'), () => {
 
 
 
-module.exports ={
-  //configurando los token
-  SECRET_TOKEN:'mitoken'
-}

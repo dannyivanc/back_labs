@@ -1,6 +1,7 @@
 const Docente = require('../models/Docente')
 const express = require('express')
 const app = express();
+//const localStorage = require('node-localstorage')
 const flash = require('connect-flash')
 app.use(flash())
 
@@ -54,12 +55,12 @@ async function logear_docente(req,res){
           console.log(docente)
           res.status(200).send([1])
           console.log('esta es asd asd asd '+ru_docente)
+        
         }
         if(err){
             res.status(500).send({respuesta: `se produjo un error`})
         }
     })
-
 }
 
 async function rudocente(){

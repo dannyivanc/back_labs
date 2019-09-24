@@ -2,21 +2,21 @@ const services = require('../services')
 
 
 function isdocenteAuth(req,res,next){
-    if(!req.headers.autorizacion){
-        return res.status(403).send({message: `no tiene autorizacion`})
-    }
+    if (!req.headers.authorization) {
+        return res.status(403).send({ message: 'No tienes autorización' })
+      }
     
-    const token = req.headers.autorizacion.split("")[1]
- 
-    services.decodeToken(token)
-    .then(response=>{
-        res.docente = response
-        next()
-    })
-    .catch(response=>{
-       res.statua(response.status) 
-    })
-} 
+      const token = req.headers.authorization.split(' ')[1]
+    
+      services.decodeToken(token)
+        .then(response => {
+          req.user = response
+          next()
+        })
+        .catch(response => {
+          res.status(response.status)
+        })
+    }
 
 module.exports = {
     isdocenteAuth
